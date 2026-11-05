@@ -1,0 +1,5 @@
+{
+  "name": "blue-team-demo",
+  "tools": ["read", "grep", "glob", "find"],
+  "spawns": []
+}

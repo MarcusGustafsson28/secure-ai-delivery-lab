@@ -1,0 +1,5 @@
+{
+  "name": "unsafe-demo",
+  "tools": ["read", "bash", "write", "network"],
+  "spawns": ["helper"]
+}
