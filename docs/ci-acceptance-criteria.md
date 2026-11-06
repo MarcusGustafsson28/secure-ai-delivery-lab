@@ -1,6 +1,6 @@
 CI ACCEPTANCE CRITERIA FOR MVP
 
-Status: implemented locally; GitHub run not yet verified.
+Status: implemented and verified on GitHub; tests pass on ubuntu-24.04.
 
 WORKFLOW BEHAVIOR
 

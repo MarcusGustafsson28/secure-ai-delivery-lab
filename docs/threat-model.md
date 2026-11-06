@@ -18,7 +18,7 @@ Exempelfilerna innehåller påhittade data. Inga API-nycklar eller personuppgift
 
 Användaren anger en policyfil → programmet kontrollerar sökvägen och läser JSON → policyn jämförs med tillåtna verktyg och fält → programmet visar PASS eller DENY.
 
-Policyfilens innehåll och sökväg behandlas som opålitlig indata. Programmet ska bara läsa JSON-filer inom projektmappen. CI är en separat förtroendegräns. Arbetsflödet är definierat lokalt men har ännu inte körts på GitHub.
+Policyfilens innehåll och sökväg behandlas som opålitlig indata. Programmet ska bara läsa JSON-filer inom projektmappen. CI är en separat förtroendegräns. Arbetsflödet körs på GitHub Actions med Ubuntu 24.04; körningen efter runner-ändringen passerade.
 
 ## Risker och skydd
 
@@ -40,7 +40,7 @@ Policyfilens innehåll och sökväg behandlas som opålitlig indata. Programmet 
 
 ### CI får onödiga behörigheter eller osäkra beroenden
 **Påverkan:** Ett felkonfigurerat arbetsflöde kan ge kod i CI större åtkomst än testerna behöver.
-**Skydd:** Arbetsflödet är definierat enligt kraven, men GitHub-körning och granskning återstår.
+**Skydd:** GitHub-körningen efter runner-ändringen passerade. Granska behörigheter och Action-SHA:er vid arbetsflödesändringar.
 
 ## Verifiering
 
@@ -48,7 +48,7 @@ Policyfilens innehåll och sökväg behandlas som opålitlig indata. Programmet 
 - Den avsiktligt osäkra exempelfilen har gett DENY.
 - De tio befintliga enhetstesterna har passerat.
 - Lägg till ett CLI-test för syntaktiskt felaktig JSON. Dubbla nycklar och externa sökvägar har nu tester.
-- Efter uppladdning: kontrollera att GitHub kör testerna och att arbetsflödet endast har contents: read.
+- Efter workflow-ändringar: kontrollera att GitHub-körningen passerar och att behörigheten fortsatt är contents: read.
 
 ## Begränsningar
 

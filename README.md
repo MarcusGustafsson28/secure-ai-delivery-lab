@@ -41,5 +41,3 @@ Det här är inte en produktionssäker policy-motor eller en fullständig säker
 ## Nästa utvecklingssteg
 
 - Lägg till ett CLI-test för syntaktiskt felaktig JSON.
-- Kör CI-arbetsflödet på GitHub efter uppladdning.
-- Uppdatera dokumentationen efter första lyckade CI-körningen.
