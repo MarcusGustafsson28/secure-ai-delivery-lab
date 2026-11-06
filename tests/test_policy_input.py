@@ -1,5 +1,7 @@
 import json
 import unittest
+import subprocess
+import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -25,6 +27,25 @@ class PolicyInputTests(unittest.TestCase):
                 ValueError, "inside the project directory"
             ):
                 resolve_policy_file(outside_policy, project_root)
+
+    def test_cli_rejects_malformed_json(self):
+        project_root = Path(__file__).resolve().parents[1]
+        app = project_root / "app" / "policy_guard.py"
+
+        with TemporaryDirectory(dir=project_root / "examples") as directory:
+            policy_file = Path(directory) / "malformed.json"
+            policy_file.write_text('{"name":', encoding="utf-8")
+
+            result = subprocess.run(
+                [sys.executable, str(app), str(policy_file)],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+        self.assertEqual(result.returncode, 2)
+        self.assertTrue(result.stdout.startswith("ERROR: "))
+        self.assertEqual(result.stderr, "")
 
 
 if __name__ == "__main__":

@@ -46,8 +46,7 @@ Policyfilens innehåll och sökväg behandlas som opålitlig indata. Programmet 
 
 - Den säkra exempelfilen har gett PASS.
 - Den avsiktligt osäkra exempelfilen har gett DENY.
-- De tio befintliga enhetstesterna har passerat.
-- Lägg till ett CLI-test för syntaktiskt felaktig JSON. Dubbla nycklar och externa sökvägar har nu tester.
+- De elva enhetstesterna har passerat, inklusive CLI-test för syntaktiskt felaktig JSON, dubbla nycklar och sökvägar utanför projektet.
 - Efter workflow-ändringar: kontrollera att GitHub-körningen passerar och att behörigheten fortsatt är contents: read.
 
 ## Begränsningar

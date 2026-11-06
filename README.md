@@ -19,7 +19,7 @@ Avsiktligt osäker exempelfil: `python3 app/policy_guard.py examples/unsafe-agen
 Förväntat: `DENY`. Avslutskod 1 är avsiktlig för en underkänd policy.
 
 Kör testerna: `python3 -m unittest discover -s tests -v`
-De åtta befintliga testerna kontrollerar bland annat verktygslistan, underagenter och felaktiga policyfält.
+De elva testerna omfattar bland annat verktygslistan, underagenter, felaktig JSON och sökvägar utanför projektet.
 
 ## OMP
 
@@ -37,7 +37,3 @@ Det här är inte en produktionssäker policy-motor eller en fullständig säker
 - `docs/threat-model.md` — hotmodell
 - `docs/ci-acceptance-criteria.md` — planerade CI-krav
 - `.omp/agents/` — OMP-projektagenter
-
-## Nästa utvecklingssteg
-
-- Lägg till ett CLI-test för syntaktiskt felaktig JSON.
